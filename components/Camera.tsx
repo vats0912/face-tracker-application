@@ -2,6 +2,7 @@
 import React from 'react'
 import { useEffect,useState,useRef } from 'react'
 import { loadModels, detectFaces } from '../app/utils/facetracking';
+import { get } from 'http';
 
 export default function Camera() {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -13,7 +14,7 @@ export default function Camera() {
     const [isRecording, setisRecording] = useState(false);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const chunksRef = useRef<Blob[]>([]);
-    
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
     const [isPreviewing, setIsPreviewing] = useState(false);
     
 
@@ -53,6 +54,15 @@ useEffect(() => {
 
   }, []);
 
+useEffect(() => {
+  if (typeof window !== 'undefined') {
+    const storedUrl = sessionStorage.getItem('recordedVideoURL');
+    if (storedUrl) {
+      setPreviewUrl(storedUrl);
+    }
+  }
+}, []);
+
 
   useEffect(() => {
   let timerInterval: NodeJS.Timeout;
@@ -86,7 +96,9 @@ const startRecording = () => {
   }
 
   const blob = new Blob(chunksRef.current, { type: 'video/webm; codecs=vp8' });
-  sessionStorage.setItem('recordedVideoURL', URL.createObjectURL(blob));
+  const url = URL.createObjectURL(blob);
+  sessionStorage.setItem('recordedVideoURL', url);
+  setPreviewUrl(url);
   setIsPreviewing(true);
   chunksRef.current = [];
 };
@@ -108,10 +120,22 @@ const startRecording = () => {
     setisRecording(false);
   };
 
-const previewUrl = sessionStorage.getItem('recordedVideoURL') || null;
+
 
 if (isRecording && recordingTime >= 60) {
   stopRecording(); 
+}
+
+const getUrl=()=>{
+  if(!isRecording && !isPreviewing) {
+    const recordedVideoURL = sessionStorage.getItem('recordedVideoURL');
+    if (recordedVideoURL) {
+      setPreviewUrl(recordedVideoURL);
+      setIsPreviewing(true);
+    } else {
+      alert("No video recorded yet.");
+    }
+}
 }
 
   return (
@@ -175,7 +199,4 @@ if (isRecording && recordingTime >= 60) {
   </div>
 
     )}
-
-
-
 

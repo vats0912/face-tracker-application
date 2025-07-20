@@ -1,5 +1,8 @@
+
 import React from 'react'
-import Camera from '../../components/Camera'
+import dynamic from 'next/dynamic';
+const Camera = dynamic(() => import('../../components/Camera'), { ssr: false });
+
 
 function page() {
   return (

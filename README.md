@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">👁️ Face-Tracker Web App</h1>
+<p align="center">
+  <em>AI-powered face tracking web application built with Next.js and TailwindCSS</em>
+</p>
 
-## Getting Started
 
-First, run the development server:
+<p align="center">
+  <a href="https://face-tracker-application-4uhd.vercel.app/">
+    <img src="https://img.shields.io/badge/🚀 Live%20Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+</p>
+---
 
+## ✨ Overview
+**Face-Tracker Web App** is a real-time face tracking application that uses **machine learning models** to detect and track facial movements through the user’s camera.  
+
+The app allows users to:  
+- 🎥 Capture live face movements via webcam  
+- 🎯 Detect & track facial coordinates dynamically  
+- 💾 Record face movement sessions  
+- ⬇️ Download recordings with **exact markers**  
+
+This project showcases the integration of **Next.js frontend, TailwindCSS styling, and ML models** for real-time video processing.  
+
+---
+
+## 🚀 Features
+- 🔍 **Real-time Face Detection** → Detect facial landmarks & coordinates via webcam.  
+- 🎯 **Face Tracking** → Tracks face movements dynamically on-screen.  
+- 🎥 **Video Recording** → Record live video with face markers.  
+- 💾 **Download Option** → Save recorded video locally with face detection markers.  
+- 🎨 **Responsive UI** → Styled with TailwindCSS for a clean and modern design.  
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend**  
+<p>
+  <img src="https://skillicons.dev/icons?i=nextjs,react,tailwind,typescript" />
+</p>
+
+**Machine Learning Models**  
+<p>
+  <img src="https://img.shields.io/badge/Face%20Detection-00C853?style=for-the-badge&logo=opencv&logoColor=white" />
+  <img src="https://img.shields.io/badge/ML%20Integration-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
+</p>
+
+**Utilities & Tools**  
+<p>
+  <img src="https://skillicons.dev/icons?i=vercel,git,github" />
+</p>
+
+---
+
+
+ 
+- 👁️ Real-time face detection view  
+- 🎥 Recording screen with face markers  
+- 💾 Download recorded video  
+
+---
+
+## ⚡ Getting Started  
+
+### 1️⃣ Clone the Repository  
 ```bash
+git clone https://github.com/your-username/face-tracker.git
+cd face-tracker
+
+2️⃣ Install Dependencies
+npm install
+# or
+yarn install
+
+3️⃣ Run the Development Server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
